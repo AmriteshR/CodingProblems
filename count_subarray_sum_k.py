@@ -11,6 +11,7 @@ def optimalsubarraySum(nums: list[int], k: int) -> int:
         else:
             sum_map[req_sum] = 1
         i += 1
+    print(sum_map)
     return max(sum_map.values())
 
 # Brute force
