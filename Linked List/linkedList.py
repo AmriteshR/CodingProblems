@@ -35,7 +35,8 @@ class LinkedList():
 
     def add_to_end(self, node):
         if self.is_empty_list():
-            self.head = node 
+            self.head = node
+            return
      
         for curr_node in self:
             pass
@@ -44,6 +45,7 @@ class LinkedList():
     def add_before_node(self, node, target):
         if self.is_empty_list():
             print(f"Emtpy List !")
+            return
 
         prev_node = self.head
         for curr_node in self:
@@ -52,15 +54,19 @@ class LinkedList():
                 node.next = curr_node
                 return
             prev_node = curr_node
+        raise Exception(f"Node with value {target} not found in list.")
 
     def add_after_node(self, node, target):
         if self.is_empty_list():
             print(f"Empty List!")
+            return
 
         for curr_node in self:
             if curr_node.data == target:
                 node.next = curr_node.next
                 curr_node.next = node
+                return
+        raise Exception(f"Node with value {target} not found in list.")
 
     def init_from_list(self, node_list):
         if not node_list:
@@ -80,10 +86,11 @@ class LinkedList():
                 prev_node.next = curr.next
                 return
             prev_node = curr
+        raise Exception(f"Node with value {target} not found in list.")
 
 ll = LinkedList()
-values = [1,2,3,4,5]
-ll.init_from_list(values)
+# values = [1,2,3,4,5]
+# ll.init_from_list(values)
 print(ll)
 ll.add_to_end(Node(9))
 print(ll)
