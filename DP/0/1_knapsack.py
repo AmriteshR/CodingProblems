@@ -1,3 +1,5 @@
+import pprint
+pp = pprint.PrettyPrinter(indent=4)
 wt = [1, 2, 4, 5]
 val = [5, 4, 8, 6]
 W = 5
@@ -15,4 +17,5 @@ for i in range(1,n):
         if wt[i] <= j:
             taken = val[i] + dp[i-1][j-wt[i]]
         dp[i][j] = max(notTaken,taken)
+        pp.pprint(dp)
 print(dp[n-1][W])

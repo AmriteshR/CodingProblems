@@ -10,5 +10,5 @@ def longest_substring(s: str):
         j += 1
     return max_len
 # driver code
-sample = "bbbbb"
+sample = "aabbbbbccbebebedfgh"
 print(longest_substring(sample))

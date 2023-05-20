@@ -1,4 +1,6 @@
 # Coins can be repeated
+import pprint
+pp = pprint.PrettyPrinter(indent=4)
 arr = [1, 2, 3]
 T = 7
 n = len(arr)
@@ -16,6 +18,7 @@ for i in range(1,n):
         notTaken = dp[i-1][j]
         taken = int(1e9)
         if arr[i] <= j:
-            taken = 1 + dp[i-1][j-arr[i]]
+            taken = 1 + dp[i][j-arr[i]]
         dp[i][j] = min(notTaken,taken)
+        pp.pprint(dp)
 print(dp[n-1][T])
