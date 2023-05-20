@@ -6,7 +6,8 @@ class Node():
     
     def __repr__(self):
         return str(self.data)
-    
+
+        
 class LinkedList():
     def __init__(self) -> None:
         self.head = None
@@ -88,15 +89,53 @@ class LinkedList():
             prev_node = curr
         raise Exception(f"Node with value {target} not found in list.")
 
-ll = LinkedList()
-# values = [1,2,3,4,5]
-# ll.init_from_list(values)
-print(ll)
-ll.add_to_end(Node(9))
-print(ll)
-ll.add_before_node(Node(11),2)
-print(ll)
-ll.add_after_node(Node(12),4)
-print(ll)
-del ll[2]
-print(ll)
+class DNode():
+    def __init__(self, value) -> None:
+        self.data = value
+        self.prev = None
+        self.next = None
+    
+    def __repr__(self):
+        return str(self.data)
+    
+
+class DoublyLinkedList():
+    def __init__(self) -> None:
+        self.head = None
+
+    def is_empty_list(self):
+        return self.head is None
+    
+    def __iter__(self):
+        if self.is_empty_list():
+            return
+
+        start = self.head
+        while start is not None:
+            yield start
+            start = start.next
+
+    def __repr__(self):
+        nodes = []
+        for node in self:
+            nodes.append(str(node.data))
+        return '->'.join(nodes)
+
+    def add_to_start(self, node):
+        if self.is_empty_list():
+            self.head = node
+            return
+        
+        
+# ll = LinkedList()
+# # values = [1,2,3,4,5]
+# # ll.init_from_list(values)
+# print(ll)
+# ll.add_to_end(Node(9))
+# print(ll)
+# ll.add_before_node(Node(11),2)
+# print(ll)
+# ll.add_after_node(Node(12),4)
+# print(ll)
+# del ll[2]
+# print(ll)
